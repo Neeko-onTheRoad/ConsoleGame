@@ -1,17 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="리소스 파일">
+    <Filter Include="res">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="src\Source">
+      <UniqueIdentifier>{a0af7be1-dca9-4b64-9d39-285ab26a8715}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Header">
+      <UniqueIdentifier>{57fc850e-93f0-4514-a4f8-7a86783a2808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Header\Core">
+      <UniqueIdentifier>{3cfefaa5-2abc-4ef1-8f9a-88129aa63439}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Header\Core\Mathematics">
+      <UniqueIdentifier>{02d93358-94eb-4b9a-b27b-d35a04688c8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Header\Core\Mathematics\Vector">
+      <UniqueIdentifier>{ab6bd06e-09dd-4e2c-bd2d-a5c24562507c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include=".Program.Cxx">
+      <Filter>src\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Math.Hxx">
+      <Filter>src\Header\Core\Mathematics</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2Base.Hxx">
+      <Filter>src\Header\Core\Mathematics\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.Hxx">
+      <Filter>src\Header\Core\Mathematics\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2Swizzle.Hxx">
+      <Filter>src\Header\Core\Mathematics\Vector</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
