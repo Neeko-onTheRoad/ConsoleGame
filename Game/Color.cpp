@@ -5,46 +5,60 @@ namespace Game {
 	const Color Color::Zero = { 0.f, 0.f, 0.f };
 	const Color Color::One = { 1.f, 1.f, 1.f };
 
+	const Color Color::Black		= Color::Lerp(Color::Zero, Color::One, 0.f / 4.f);
+	const Color Color::DarkGray		= Color::Lerp(Color::Zero, Color::One, 1.f / 4.f);
+	const Color Color::Gray			= Color::Lerp(Color::Zero, Color::One, 2.f / 4.f);
+	const Color Color::LightGray	= Color::Lerp(Color::Zero, Color::One, 3.f / 4.f);
+	const Color Color::White		= Color::Lerp(Color::Zero, Color::One, 4.f / 4.f);
+
+	const Color Color::Red		= { 1.f, 0.f, 0.f };
+	const Color Color::Green	= { 0.f, 1.f, 0.f };
+	const Color Color::Blue		= { 0.f, 0.f, 1.f };
+
+	const Color Color::Yellow	= Color::Red + Color::Green;
+	const Color Color::Magenta	= Color::Red + Color::Blue;
+	const Color Color::Cyan		= Color::Green + Color::Blue;
+
 	void Color::Clamp() noexcept {
-		r = Saturation(r);
-		g = Saturation(g);
-		b = Saturation(b);
+		this->r = Saturation(this->r);
+		this->g = Saturation(this->g);
+		this->b = Saturation(this->b);
 	}
 
     Color Color::Clamped() const noexcept {
 		return {
-			Saturation(r),
-			Saturation(g),
-			Saturation(b)
+			Saturation(this->r),
+			Saturation(this->g),
+			Saturation(this->b)
 		};
     }
 
 	Color Color::Grayscale() const noexcept {
 		return Color::One * (
-			r * Color::LuminanceR +
-			g * Color::LuminanceG +
-			b * Color::LuminanceB
+			this->r * Color::LuminanceR +
+			this->g * Color::LuminanceG +
+			this->b * Color::LuminanceB
 		);
 	}
 
 	std::string Color::ToString() const {
-		return std::format("({}, {}, {})", r, g, b);
+		return std::format("({}, {}, {})", this->r, this->g, this->b);
 	}
 
 	std::string Color::ToHEXString() const {
 		return std::format(
 			"#{:02X}{:02X}{:02X}",
-			static_cast<signed char>(r * 255.f),
-			static_cast<signed char>(g * 255.f),
-			static_cast<signed char>(b * 255.f)
+			static_cast<unsigned char>(this->r * 255.f),
+			static_cast<unsigned char>(this->g * 255.f),
+			static_cast<unsigned char>(this->b * 255.f)
 		);
 	}
 
-	std::tuple<signed char, signed char, signed char> Color::ToByteColor() const {
+	std::tuple<unsigned char, unsigned char, unsigned char> Color::ToByteColor() const {
 		return {
-			static_cast<signed char>(r * 255.f),
-			static_cast<signed char>(g * 255.f),
-			static_cast<signed char>(b * 255.f)
+			static_cast<unsigned char>(this->r * 255.f),
+			static_cast<unsigned char>(this->g * 255.f),
+			static_cast<unsigned char>(this->b * 255.f)
 		};
 	}
 
@@ -58,9 +72,9 @@ namespace Game {
 
     Color Color::Invoke(std::function<float(float)> const& function) const {
 		return {
-			function(r),
-			function(g),
-			function(b)
+			function(this->r),
+			function(this->g),
+			function(this->b)
 		};
     }
 
@@ -117,20 +131,6 @@ namespace Game {
 			color.b / scaler
 		};
 	}
-
-	const Color Black		= Color::Lerp(Color::Zero, Color::One, 0.f / 4.f);
-	const Color DarkGray	= Color::Lerp(Color::Zero, Color::One, 1.f / 4.f);
-	const Color Gray		= Color::Lerp(Color::Zero, Color::One, 2.f / 4.f);
-	const Color LightGray	= Color::Lerp(Color::Zero, Color::One, 3.f / 4.f);
-	const Color White		= Color::Lerp(Color::Zero, Color::One, 4.f / 4.f);
-
-	const Color Red			= { 1.f, 0.f, 0.f };
-	const Color Green		= { 0.f, 1.f, 0.f };
-	const Color Blue		= { 0.f, 0.f, 1.f };
-
-	const Color Yellow		= Color::Red + Color::Green;
-	const Color Magenta		= Color::Red + Color::Blue;
-	const Color Cyan		= Color::Green + Color::Blue;
 
 }
 

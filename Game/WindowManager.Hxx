@@ -4,6 +4,9 @@
 #include <Windows.h>
 
 #include "Vector2.Hxx"
+#include "StringConvert.Hxx"
+#include "ANSIEscapeCode.Hxx"
+#include "WindowPrintBuffer.Hxx"
 
 namespace Game {
 
@@ -14,7 +17,7 @@ namespace Game {
 		HWND window;
 		HANDLE inputHandle;
 		HANDLE outputHandle;
-		Vector2Unsigned currentBufferSize;
+		Vector2Size currentBufferSize;
 
 	public:
 
@@ -26,7 +29,7 @@ namespace Game {
 		void SetTitle(std::string_view title);
 
 		std::string GetTitle() const;
-		Vector2Unsigned const& GetCurrentBufferSize() const;
+		Vector2Size const& GetCurrentBufferSize() const;
 
 	public:
 
@@ -35,7 +38,10 @@ namespace Game {
 		void DisableScroll() const;
 		void DisableScrollBar() const;
 		void DisableQuickEditMode() const;
+		void EnableVirtualTerminal() const;
 		void SetCursorBlinking(bool blinking) const;
+
+		void Print(WindowPrintBuffer const& buffer) const;
 
 	};
 

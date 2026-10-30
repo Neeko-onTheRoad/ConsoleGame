@@ -9,7 +9,7 @@
 
 namespace Game {
 
-	struct Color {
+	struct Color { // TODO: Make Byte Color
 
 	public:
 
@@ -47,7 +47,7 @@ namespace Game {
 
 		std::string ToString() const;
 		std::string ToHEXString() const;
-		std::tuple<signed char, signed char, signed char> ToByteColor() const;
+		std::tuple<unsigned char, unsigned char, unsigned char> ToByteColor() const;
 
 		std::string ToANSIForegroundString() const;
 		std::string ToANSIBackgroundString() const;

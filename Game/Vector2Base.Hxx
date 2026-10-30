@@ -37,11 +37,23 @@ namespace Game {
 	public:
 
 		T MagnitudeSqr() const noexcept {
-			return x * x + y * y;
+			return this->x * this->x + this->y * this->y;
 		}
 
 		T Magnitude() const noexcept requires std::is_floating_point<T>::value {
 			return std::sqrt(this->MagnitudeSqr());
+		}
+
+		T SignedArea() const noexcept requires std::is_signed<T>::value {
+			return this->x * this->y;
+		}
+
+		T Area() const noexcept requires std::is_signed<T>::value {
+			return abs(this->x * this->y);
+		}
+
+		T Area() const noexcept requires std::is_unsigned<T>::value {
+			return this->x * this->y;
 		}
 
 		Vector2Base<T> Normalized() const noexcept requires std::is_floating_point<T>::value {
@@ -71,16 +83,16 @@ namespace Game {
 		template<class TOther> requires std::is_arithmetic<TOther>::value
 		Vector2Base<TOther> Cast() const noexcept {
 			return {
-				static_cast<TOther>(x),
-				static_cast<TOther>(y)
+				static_cast<TOther>(this->x),
+				static_cast<TOther>(this->y)
 			};
 		}
 
 		template<class TOther> requires std::is_arithmetic<TOther>::value
 		Vector2Base<TOther> Invoke(std::function<TOther(T)> const& function) const {
 			return {
-				function(x),
-				function(y)
+				function(this->x),
+				function(this->y)
 			};
 		}
 
@@ -91,8 +103,8 @@ namespace Game {
 			const auto magnitude = this->Magnitude();
 			if (magnitude == 0)	return;
 
-			x /= magnitude;
-			y /= magnitude;
+			this->x /= magnitude;
+			this->y /= magnitude;
 
 		}
 

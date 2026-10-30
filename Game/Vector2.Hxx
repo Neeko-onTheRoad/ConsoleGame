@@ -8,6 +8,7 @@ namespace Game {
 	typedef Vector2Base<float> Vector2;
 	typedef Vector2Base<int> Vector2Int;
 	typedef Vector2Base<unsigned> Vector2Unsigned;
+	typedef Vector2Base<unsigned long long> Vector2Size;
 
 }
 

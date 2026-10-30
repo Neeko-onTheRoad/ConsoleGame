@@ -56,11 +56,14 @@
     <ClCompile Include="WindowManager.Cxx">
       <Filter>src\Source\Engine\WindowManagement</Filter>
     </ClCompile>
-    <ClCompile Include="WindowPrintInfo.Cxx">
+    <ClCompile Include="WindowPrintBuffer.Cxx">
       <Filter>src\Source\Engine\WindowManagement</Filter>
     </ClCompile>
     <ClCompile Include="Color.cpp">
-      <Filter>src</Filter>
+      <Filter>src\Source\Core\Mathematics</Filter>
+    </ClCompile>
+    <ClCompile Include="ANSIEscapeCode.Cxx">
+      <Filter>src\Source\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -82,11 +85,14 @@
     <ClInclude Include="StringConvert.Hxx">
       <Filter>src\Header\Core\Utilities\StringUtility</Filter>
     </ClInclude>
-    <ClInclude Include="WindowPrintInfo.Hxx">
+    <ClInclude Include="WindowPrintBuffer.Hxx">
       <Filter>src\Header\Engine\WindowManagement</Filter>
     </ClInclude>
     <ClInclude Include="Color.Hxx">
       <Filter>src\Header\Core\Mathematics</Filter>
+    </ClInclude>
+    <ClInclude Include="ANSIEscapeCode.Hxx">
+      <Filter>src\Header\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

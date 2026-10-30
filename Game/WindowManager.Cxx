@@ -1,13 +1,15 @@
 #include "WindowManager.Hxx"
-#include "StringConvert.Hxx"
 
 namespace Game {
 
 	WindowManager::WindowManager() {
+
 		this->window = GetConsoleWindow();
 		this->inputHandle = GetStdHandle(STD_INPUT_HANDLE);
 		this->outputHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+
 		UpdateConsoleInfo();
+
 	}
 
 	WindowManager::~WindowManager() {
@@ -20,7 +22,7 @@ namespace Game {
 		SetConsoleTitleA(title.data());
 	}
 
-	Vector2Unsigned const& WindowManager::GetCurrentBufferSize() const {
+	Vector2Size const& WindowManager::GetCurrentBufferSize() const {
 		return this->currentBufferSize;
 	}
 
@@ -52,13 +54,13 @@ namespace Game {
 		if (!GetConsoleMode(this->outputHandle, &mode)) return;
 		if (!SetConsoleMode(this->outputHandle, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING)) return;
 
-		constexpr char sequence[] = "\x1b[?1049h";
+		const auto& sequence = ANSI::SetAlternateScreenBuffer(true);
 
 		DWORD written;
 		WriteConsoleA(
 			this->outputHandle,
-			sequence,
-			sizeof(sequence) - 1,
+			sequence.data(),
+			static_cast<DWORD>(sequence.size()),
 			&written,
 			nullptr
 		);
@@ -81,6 +83,12 @@ namespace Game {
 	
 	}
 
+	void WindowManager::EnableVirtualTerminal() const {
+		DWORD mode;
+		GetConsoleMode(this->outputHandle, &mode);
+		SetConsoleMode(this->outputHandle, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+	}
+
 	void WindowManager::SetCursorBlinking(bool blinking) const {
 
 		CONSOLE_CURSOR_INFO cursorInfo;
@@ -88,6 +96,12 @@ namespace Game {
 		GetConsoleCursorInfo(this->outputHandle, &cursorInfo);
 		cursorInfo.bVisible = blinking;
 		SetConsoleCursorInfo(this->outputHandle, &cursorInfo);
+
+	}
+
+	void WindowManager::Print(WindowPrintBuffer const& buffer) const {
+	
+		
 
 	}
 
