@@ -1,16 +1,22 @@
 #ifndef __VECTOR2_BASE_HXX__
 #define __VECTOR2_BASE_HXX__
 
-#include <cmath>
+#include <format> // VCIC-Excluded 
 #include <string>
 #include <iostream>
+#include <type_traits>
 
+#include "Math.Hxx" // VCIC-Excluded 
 #include "Vector2Swizzle.Hxx"
 
 namespace Game {
 
 	template<class T> requires std::is_arithmetic<T>::value
 	struct Vector2Base {
+
+	public:
+
+		using ValueType = T;
 
 	public:
 		
@@ -57,25 +63,45 @@ namespace Game {
 			};
 		}
 
-		std::string ToString() const noexcept {
+		std::string ToString() const {
 			return std::format("({}, {})", this->x, this->y);
 		}
 
-	public:
+		template<class TOther> requires std::is_arithmetic<TOther>::value
+		Vector2Base<TOther> Cast() const noexcept {
+			return {
+				static_cast<TOther>(x),
+				static_cast<TOther>(y)
+			};
+		}
 
-		void Normalize() noexcept {
-			const auto magnitude = this->Magnitude();
-			x /= magnitude;
-			y /= magnitude;
+		template<class TOther> requires std::is_arithmetic<TOther>::value
+		Vector2Base<TOther> Invoke(TOther (*function)(T)) const {
+			return {
+				function(x),
+				function(y)
+			};
 		}
 
 	public:
 
-		static float Dot(Vector2Base<T> const& left, Vector2Base<T> const& right) noexcept {
+		void Normalize() noexcept requires std::is_floating_point<T>::value {
+
+			const auto magnitude = this->Magnitude();
+			if (magnitude == 0)	return;
+
+			x /= magnitude;
+			y /= magnitude;
+
+		}
+
+	public:
+
+		static T Dot(Vector2Base<T> const& left, Vector2Base<T> const& right) noexcept {
 			return left.x * right.x + left.y * right.y;
 		}
 
-		static float Cross(Vector2Base<T> const& left, Vector2Base<T> const& right) noexcept {
+		static T Cross(Vector2Base<T> const& left, Vector2Base<T> const& right) noexcept {
 			return left.x * right.y - right.y * left.x;
 		}
 

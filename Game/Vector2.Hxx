@@ -5,14 +5,9 @@
 
 namespace Game {
 
-	#define NEW_VECTOR(name, type)								\
-		struct name : Vector2Base<type> {						\
-			name() : Vector2Base<type>() {}						\
-			name(type x, type y) : Vector2Base<type>(x, y) {}	\
-		};
-
-	NEW_VECTOR(Vector2, float)
-	NEW_VECTOR(Vector2Int, int)
+	typedef Vector2Base<float> Vector2;
+	typedef Vector2Base<int> Vector2Int;
+	typedef Vector2Base<unsigned> Vector2Unsigned;
 
 }
 

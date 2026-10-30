@@ -1,5 +1,0 @@
-#define PROCESS_TO_INT(name, func)								\
-	template<class T> requires std::is_floating_point<T>::value	\
-	__inline static int name(T value) noexcept {				\
-		return static_cast<int>(func(value));					\
-	}

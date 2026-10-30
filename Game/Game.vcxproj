@@ -140,12 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include=".Program.Cxx" />
+    <ClCompile Include="WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Math.Hxx" />
+    <ClInclude Include="StringConvert.Hxx" />
     <ClInclude Include="Vector2.Hxx" />
     <ClInclude Include="Vector2Base.Hxx" />
     <ClInclude Include="Vector2Swizzle.Hxx" />
+    <ClInclude Include="WindowManager.Hxx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

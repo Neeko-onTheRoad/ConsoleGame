@@ -1,2 +1,2 @@
 ﻿  .Program.Cxx
-  Game.vcxproj -> C:\Users\Neeko-onTheRoad\source\repos\Game\x64\Debug\Game.exe
+LINK : fatal error LNK1168: 쓰기용으로 C:\Users\Neeko-onTheRoad\source\repos\Game\x64\Debug\Game.exe을(를) 열 수 없습니다(오류 코드: 32)

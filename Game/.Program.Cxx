@@ -1,16 +1,10 @@
 #include <iostream>
-#include "Vector2.Hxx"
-
+#include "WindowManager.Hxx"
 using namespace Game;
 
 int main(void) {
 
-	Vector2 v1(1, 2);
+	//WindowManager wm;
 
-	std::cout
-		<< v1.Swizzle(Vector2Swizzle::XX) << std::endl
-		<< v1.Swizzle(Vector2Swizzle::XY) << std::endl
-		<< v1.Swizzle(Vector2Swizzle::YX) << std::endl
-		<< v1.Swizzle(Vector2Swizzle::YY) << std::endl;
 
 }

@@ -24,10 +24,28 @@
     <Filter Include="src\Header\Core\Mathematics\Vector">
       <UniqueIdentifier>{ab6bd06e-09dd-4e2c-bd2d-a5c24562507c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Header\Engine">
+      <UniqueIdentifier>{c6f61c5d-f6c6-4640-aa29-a32d018c2403}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Header\Engine\WindowManagement">
+      <UniqueIdentifier>{1dc187f1-b8f6-4dc4-b22e-736092249437}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Source\Engine">
+      <UniqueIdentifier>{54d0f93a-194c-44ad-9569-ebd81a19acec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Source\Engine\WindowManagement">
+      <UniqueIdentifier>{3c849956-d64e-46e6-8fbf-0ab5cdc43efe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Header\Core\StringUtility">
+      <UniqueIdentifier>{311948a8-004b-4ac1-9eda-3038d04f3c29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include=".Program.Cxx">
       <Filter>src\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowManager.cpp">
+      <Filter>src\Source\Engine\WindowManagement</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +60,12 @@
     </ClInclude>
     <ClInclude Include="Vector2Swizzle.Hxx">
       <Filter>src\Header\Core\Mathematics\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowManager.Hxx">
+      <Filter>src\Header\Engine\WindowManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="StringConvert.Hxx">
+      <Filter>src\Header\Core\StringUtility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
