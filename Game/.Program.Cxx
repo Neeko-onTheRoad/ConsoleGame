@@ -4,6 +4,8 @@ using namespace Game;
 
 int main(void) {
 
+	system("pause");
+
 	WindowManager manager;
 	manager.DisableQuickEditMode();
 

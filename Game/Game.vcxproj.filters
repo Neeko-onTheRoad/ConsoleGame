@@ -36,16 +36,31 @@
     <Filter Include="src\Source\Engine\WindowManagement">
       <UniqueIdentifier>{3c849956-d64e-46e6-8fbf-0ab5cdc43efe}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Header\Core\StringUtility">
+    <Filter Include="src\Header\Core\Utilities">
+      <UniqueIdentifier>{8ec132ea-7b07-4334-9f73-bf0b42f1e9bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Header\Core\Utilities\StringUtility">
       <UniqueIdentifier>{311948a8-004b-4ac1-9eda-3038d04f3c29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Source\Core">
+      <UniqueIdentifier>{739ca2e6-3b5e-448c-ad90-24fa60f0fde0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Source\Core\Mathematics">
+      <UniqueIdentifier>{5b41bdab-c0bd-4815-b1fc-eb9bb3ab8386}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include=".Program.Cxx">
       <Filter>src\Source</Filter>
     </ClCompile>
-    <ClCompile Include="WindowManager.cpp">
+    <ClCompile Include="WindowManager.Cxx">
       <Filter>src\Source\Engine\WindowManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowPrintInfo.Cxx">
+      <Filter>src\Source\Engine\WindowManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -65,7 +80,13 @@
       <Filter>src\Header\Engine\WindowManagement</Filter>
     </ClInclude>
     <ClInclude Include="StringConvert.Hxx">
-      <Filter>src\Header\Core\StringUtility</Filter>
+      <Filter>src\Header\Core\Utilities\StringUtility</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowPrintInfo.Hxx">
+      <Filter>src\Header\Engine\WindowManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.Hxx">
+      <Filter>src\Header\Core\Mathematics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

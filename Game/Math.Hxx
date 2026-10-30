@@ -47,7 +47,7 @@ namespace Game {
 
 	NUMBER_T
 	inline static T Saturation(T value) noexcept {
-		return Clamp(value, 0, 1);
+		return Clamp<T>(value, 0, 1);
 	}
 
 	#undef NUMBER_T

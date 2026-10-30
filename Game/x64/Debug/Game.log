@@ -1,2 +1,5 @@
-﻿  WindowManager.cpp
+﻿  .Program.Cxx
+  Color.cpp
+  WindowManager.Cxx
+  WindowPrintInfo.Cxx
   Game.vcxproj -> C:\Users\gamdr\source\repos\Neeko-onTheRoad\Game\x64\Debug\Game.exe

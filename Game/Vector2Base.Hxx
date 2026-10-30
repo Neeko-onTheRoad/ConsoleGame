@@ -4,6 +4,7 @@
 #include <format> // VCIC-Excluded 
 #include <string>
 #include <iostream>
+#include <functional>
 #include <type_traits>
 
 #include "Math.Hxx" // VCIC-Excluded 
@@ -20,8 +21,8 @@ namespace Game {
 
 	public:
 		
-		T x;
-		T y;
+		T x = 0;
+		T y = 0;
 
 	public:
 	
@@ -30,8 +31,8 @@ namespace Game {
 
 	public:
 		
-		Vector2Base() : Vector2Base(0, 0) {}
-		Vector2Base(T x, T y) : x(x), y(y) {}
+		Vector2Base() noexcept = default;
+		Vector2Base(T x, T y) noexcept : x(x), y(y) {}
 
 	public:
 
@@ -76,7 +77,7 @@ namespace Game {
 		}
 
 		template<class TOther> requires std::is_arithmetic<TOther>::value
-		Vector2Base<TOther> Invoke(TOther (*function)(T)) const {
+		Vector2Base<TOther> Invoke(std::function<TOther(T)> const& function) const {
 			return {
 				function(x),
 				function(y)
@@ -147,11 +148,11 @@ namespace Game {
 			};
 		}
 
-		friend bool operator==(Vector2Base<T> const& left, Vector2Base<T> const& right) {
+		friend bool operator==(Vector2Base<T> const& left, Vector2Base<T> const& right) noexcept {
 			return left.x == right.x && left.y == right.y;
 		}
 
-		friend bool operator!=(Vector2Base<T> const& left, Vector2Base<T> const& right) {
+		friend bool operator!=(Vector2Base<T> const& left, Vector2Base<T> const& right) noexcept {
 			return left.x != right.x || left.y != right.y;
 		}
 
