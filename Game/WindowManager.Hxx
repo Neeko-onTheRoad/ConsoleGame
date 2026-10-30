@@ -11,6 +11,7 @@ namespace Game {
 
 	private:
 		
+		HWND window;
 		HANDLE inputHandle;
 		HANDLE outputHandle;
 		Vector2Unsigned currentBufferSize;
@@ -18,6 +19,7 @@ namespace Game {
 	public:
 
 		WindowManager();
+		~WindowManager();
 
 	public:
 
@@ -30,6 +32,7 @@ namespace Game {
 
 		void UpdateConsoleInfo();
 
+		void DisableScroll() const;
 		void DisableScrollBar() const;
 		void DisableQuickEditMode() const;
 		void SetCursorBlinking(bool blinking) const;

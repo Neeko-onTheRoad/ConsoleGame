@@ -147,6 +147,14 @@ namespace Game {
 			};
 		}
 
+		friend bool operator==(Vector2Base<T> const& left, Vector2Base<T> const& right) {
+			return left.x == right.x && left.y == right.y;
+		}
+
+		friend bool operator!=(Vector2Base<T> const& left, Vector2Base<T> const& right) {
+			return left.x != right.x || left.y != right.y;
+		}
+
 	};
 	
 	template<class T> requires std::is_arithmetic<T>::value

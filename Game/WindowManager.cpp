@@ -4,9 +4,16 @@
 namespace Game {
 
 	WindowManager::WindowManager() {
+		this->window = GetConsoleWindow();
 		this->inputHandle = GetStdHandle(STD_INPUT_HANDLE);
 		this->outputHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 		UpdateConsoleInfo();
+	}
+
+	WindowManager::~WindowManager() {
+		delete this->window;
+		delete this->inputHandle;
+		delete this->outputHandle;
 	}
 
 	void WindowManager::SetTitle(std::string_view title) {
@@ -33,22 +40,33 @@ namespace Game {
 		);
 
 		this->currentBufferSize = {
-			static_cast<unsigned>(bufferInfo.srWindow.Right - bufferInfo.srWindow.Left),
-			static_cast<unsigned>(bufferInfo.srWindow.Bottom - bufferInfo.srWindow.Top)
+			static_cast<unsigned>(bufferInfo.srWindow.Right - bufferInfo.srWindow.Left + 1),
+			static_cast<unsigned>(bufferInfo.srWindow.Bottom - bufferInfo.srWindow.Top + 1)
 		};
 
 	}
 
-	void WindowManager::DisableScrollBar() const {
+	void WindowManager::DisableScroll() const {
 	
-		CONSOLE_SCREEN_BUFFER_INFO info;
-		GetConsoleScreenBufferInfo(this->outputHandle, &info);
-		COORD new_size = {
-			info.srWindow.Right - info.srWindow.Left + 1,
-			info.srWindow.Bottom - info.srWindow.Top + 1
-		};
-		SetConsoleScreenBufferSize(this->outputHandle, new_size);
+		DWORD mode;
+		if (!GetConsoleMode(this->outputHandle, &mode)) return;
+		if (!SetConsoleMode(this->outputHandle, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING)) return;
 
+		constexpr char sequence[] = "\x1b[?1049h";
+
+		DWORD written;
+		WriteConsoleA(
+			this->outputHandle,
+			sequence,
+			sizeof(sequence) - 1,
+			&written,
+			nullptr
+		);
+
+	}
+
+	void WindowManager::DisableScrollBar() const {
+		ShowScrollBar(window, SB_BOTH, false);
 	}
 
 	void WindowManager::DisableQuickEditMode() const {
