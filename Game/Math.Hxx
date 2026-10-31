@@ -13,8 +13,8 @@ namespace Game {
 		}
 
 	PROCESS_TO_INT(CeilToInt, std::ceil)
-	PROCESS_TO_INT(FloorToInt, std::ceil)
-	PROCESS_TO_INT(TruncToInt, std::ceil)
+	PROCESS_TO_INT(FloorToInt, std::floor)
+	PROCESS_TO_INT(TruncToInt, std::trunc)
 	PROCESS_TO_INT(RoundToInt, std::round)
 
 	#undef PROCESS_TO_INT
