@@ -4,8 +4,6 @@
 #include <string>
 #include <format>
 
-#include "Color.Hxx"
-
 namespace Game {
 
 	struct ANSI {
@@ -13,8 +11,9 @@ namespace Game {
 		inline static const std::string ANSIPrefix = "\x1b[";
 
 		static std::string SetAlternateScreenBuffer(bool enable);
-		static std::string SetForegroundColor(Color const& color);
-		static std::string SetBackgroundColor(Color const& color);
+
+		static std::string SetForegroundColor(unsigned char r, unsigned char g, unsigned char b);
+		static std::string SetBackgroundColor(unsigned char r, unsigned char g, unsigned char b);
 
 	};
 

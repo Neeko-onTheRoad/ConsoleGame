@@ -1,25 +1,12 @@
 #include <iostream>
-#include "WindowManager.Hxx"
+#include "Color.Hxx"
 using namespace Game;
 
 int main(void) {
 
-	system("pause");
+	Color c = { 1.f, 1.f, 1.f };
+	const auto bc = c.ToByteColor();
 
-	WindowManager manager;
-	manager.DisableQuickEditMode();
-
-	Vector2Unsigned previousBufferSize = Vector2Unsigned::Zero;
-	manager.DisableScroll();
-
-	while (true) {
-
-		manager.UpdateConsoleInfo();
-		manager.DisableScrollBar();
-		manager.SetCursorBlinking(false);
-
-		std::cout << manager.GetCurrentBufferSize() << std::endl;
-
-	}
+	std::cout << c;
 
 }

@@ -74,12 +74,12 @@ namespace Game {
 				const auto& backgroundColor = this->backgroundColors[position];
 
 				if (previousForegroundColor != foregroundColor) {
-					this->outputBuffer << ANSI::SetForegroundColor(foregroundColor);
+					this->outputBuffer << foregroundColor.ToByteColor().ToANSIForegroundString();
 					previousForegroundColor = foregroundColor;
 				}
 
 				if (previousBackgroundColor != backgroundColor) {
-					this->outputBuffer << ANSI::SetBackgroundColor(backgroundColor);
+					this->outputBuffer << backgroundColor.ToByteColor().ToANSIBackgroundString();
 					previousBackgroundColor = backgroundColor;
 				}
 

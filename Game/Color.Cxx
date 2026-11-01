@@ -54,20 +54,12 @@ namespace Game {
 		);
 	}
 
-	std::tuple<unsigned char, unsigned char, unsigned char> Color::ToByteColor() const {
+	ByteColor const& Color::ToByteColor() const {
 		return {
 			static_cast<unsigned char>(this->r * 255.f),
 			static_cast<unsigned char>(this->g * 255.f),
 			static_cast<unsigned char>(this->b * 255.f)
 		};
-	}
-
-	std::string Color::ToANSIForegroundString() const {
-		return std::string(); // TODO
-	}
-
-	std::string Color::ToANSIBackgroundString() const {
-		return std::string(); // TODO
 	}
 
     Color Color::Invoke(std::function<float(float)> const& function) const {

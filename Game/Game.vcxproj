@@ -142,12 +142,14 @@
   <ItemGroup>
     <ClCompile Include=".Program.Cxx" />
     <ClCompile Include="ANSIEscapeCode.Cxx" />
-    <ClCompile Include="Color.cpp" />
+    <ClCompile Include="ByteColor.Cxx" />
+    <ClCompile Include="Color.Cxx" />
     <ClCompile Include="WindowManager.Cxx" />
     <ClCompile Include="WindowPrintBuffer.Cxx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ANSIEscapeCode.Hxx" />
+    <ClInclude Include="ByteColor.Hxx" />
     <ClInclude Include="Color.Hxx" />
     <ClInclude Include="Math.Hxx" />
     <ClInclude Include="StringConvert.Hxx" />

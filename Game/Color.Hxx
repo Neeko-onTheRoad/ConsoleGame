@@ -3,9 +3,12 @@
 
 #include <format>
 #include <string>
+#include <iostream>
 #include <functional>
 
 #include "Math.Hxx"
+#include "ByteColor.Hxx"
+#include "ANSIEscapeCode.Hxx"
 
 namespace Game {
 
@@ -47,10 +50,7 @@ namespace Game {
 
 		std::string ToString() const;
 		std::string ToHEXString() const;
-		std::tuple<unsigned char, unsigned char, unsigned char> ToByteColor() const;
-
-		std::string ToANSIForegroundString() const;
-		std::string ToANSIBackgroundString() const;
+		ByteColor const& ToByteColor() const;
 
 		Color Invoke(std::function<float(float)> const& function) const;
 
@@ -87,6 +87,11 @@ namespace Game {
 		static const Color Cyan;
 
 	};
+
+	std::ostream& operator<<(std::ostream& stream, Color const& color) {
+		stream << color.ToString();
+		return stream;
+	}
 
 }
 

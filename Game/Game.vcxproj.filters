@@ -48,6 +48,9 @@
     <Filter Include="src\Source\Core\Mathematics">
       <UniqueIdentifier>{5b41bdab-c0bd-4815-b1fc-eb9bb3ab8386}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Header\Core\Mathematics\Color">
+      <UniqueIdentifier>{4a402177-2ae7-4137-b183-90bbe83fd410}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include=".Program.Cxx">
@@ -59,11 +62,14 @@
     <ClCompile Include="WindowPrintBuffer.Cxx">
       <Filter>src\Source\Engine\WindowManagement</Filter>
     </ClCompile>
-    <ClCompile Include="Color.cpp">
+    <ClCompile Include="Color.Cxx">
       <Filter>src\Source\Core\Mathematics</Filter>
     </ClCompile>
     <ClCompile Include="ANSIEscapeCode.Cxx">
       <Filter>src\Source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ByteColor.Cxx">
+      <Filter>src\Source\Core\Mathematics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,11 +94,14 @@
     <ClInclude Include="WindowPrintBuffer.Hxx">
       <Filter>src\Header\Engine\WindowManagement</Filter>
     </ClInclude>
-    <ClInclude Include="Color.Hxx">
-      <Filter>src\Header\Core\Mathematics</Filter>
-    </ClInclude>
     <ClInclude Include="ANSIEscapeCode.Hxx">
       <Filter>src\Header\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.Hxx">
+      <Filter>src\Header\Core\Mathematics\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="ByteColor.Hxx">
+      <Filter>src\Header\Core\Mathematics\Color</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
